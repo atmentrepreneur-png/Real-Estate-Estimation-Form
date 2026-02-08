@@ -1,0 +1,163 @@
+:root {
+  /* Branding - White Label foundation */
+  --primary-color: #006fff;
+  /* New Blue */
+  --primary-hover: #0056cb;
+  --text-color: #222633;
+  /* Dark Navy for text */
+  --text-light: #6b7280;
+  /* Gray 500 */
+  --bg-color: #f3f4f6;
+  /* Gray 100 */
+  --card-bg: #ffffff;
+  --border-radius: 12px;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --border-color: #e5e7eb;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Form specific */
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --focus-ring: 0 0 0 3px rgba(0, 111, 255, 0.15);
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+/* Utility classes for the form */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-color);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--input-border);
+  border-radius: var(--border-radius);
+  background-color: var(--input-bg);
+  font-size: 1rem;
+  /* Better for mobile to avoid zoom */
+  transition: all 0.2s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: var(--focus-ring);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  width: 100%;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 0 4px 6px rgba(0, 111, 255, 0.2);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+/* White label logo placeholder */
+.brand-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.logo-placeholder {
+  height: 60px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+  background-color: #e5e7eb;
+  /* Gray 200 placeholder */
+  border-radius: 8px;
+  line-height: 60px;
+  color: #6b7280;
+  font-size: 0.875rem;
+  max-width: 200px;
+  font-weight: 600;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 640px) {
+  .container {
+    padding: var(--spacing-md);
+  }
+
+  .card {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
