@@ -201,5 +201,6 @@ export default function SectionF({ rooms, setRooms }) {
                     ))}
                 </div>
             </div>
-            )
+        </div>
+    )
 }
