@@ -31,8 +31,8 @@ export default function SectionA({ formData, handleChange }) {
                 />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 3fr', gap: '1rem' }}>
-                <div className="form-group">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '1rem' }}>
+                <div className="form-group" style={{ gridColumn: 'span 1' }}>
                     <label className="form-label">N°</label>
                     <input
                         type="text"
@@ -42,7 +42,7 @@ export default function SectionA({ formData, handleChange }) {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group" style={{ gridColumn: 'span 2' }}>
                     <label className="form-label">Rue / Voie</label>
                     <input
                         type="text"
@@ -67,7 +67,7 @@ export default function SectionA({ formData, handleChange }) {
             </div>
 
             {formData.typeBien === 'appartement' && (
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
                     <div className="form-group">
                         <label className="form-label">Bâtiment</label>
                         <input
@@ -91,7 +91,7 @@ export default function SectionA({ formData, handleChange }) {
                 </div>
             )}
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
                 <div className="form-group">
                     <label className="form-label">Nombre de pièces</label>
                     <input
@@ -114,7 +114,7 @@ export default function SectionA({ formData, handleChange }) {
                 </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
                 <div className="form-group">
                     <label className="form-label">Année de construction</label>
                     <input

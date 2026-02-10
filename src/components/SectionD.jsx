@@ -1,14 +1,6 @@
 import React from 'react'
 
 export default function SectionD({ formData, handleChange, handleMultiSelectChange }) {
-    // Helper for multi-check logic handled in parent or here?
-    // User asked for rule-based, simple. I'll implement a simple handler here or assume parent provides it.
-    // For simplicity, I'll assume handleMultiSelectChange is passed which takes (name, value).
-
-    // Actually, for multi-select checkboxes, standard handleChange overwrites value.
-    // I will implement a local helper or expect a specific handler.
-    // Let's implement the UI.
-
     const energies = ['Electrique', 'Gaz', 'Fioul', 'Autre']
     const diffusions = ['Radiateurs', 'Plancher chauffant', 'Autre']
 
@@ -17,7 +9,7 @@ export default function SectionD({ formData, handleChange, handleMultiSelectChan
             <h2>Caractéristiques Générales</h2>
 
             {/* Heating */}
-            <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem', marginTop: '1rem' }}>Chauffage</h3>
+            <h3 style={{ marginTop: '1.5rem', marginBottom: '1rem' }}>Chauffage</h3>
             <div className="form-group">
                 <label className="form-label">Régime</label>
                 <select
@@ -34,15 +26,16 @@ export default function SectionD({ formData, handleChange, handleMultiSelectChan
 
             <div className="form-group">
                 <label className="form-label">Énergies</label>
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
                     {energies.map(e => (
-                        <label key={e} style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.9rem' }}>
+                        <label key={e} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
                             <input
                                 type="checkbox"
                                 name="chauffageEnergies"
                                 value={e}
                                 checked={formData.chauffageEnergies?.includes(e) || false}
                                 onChange={handleMultiSelectChange}
+                                style={{ transform: 'scale(1.2)' }}
                             />
                             {e}
                         </label>
@@ -52,15 +45,16 @@ export default function SectionD({ formData, handleChange, handleMultiSelectChan
 
             <div className="form-group">
                 <label className="form-label">Diffusion</label>
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
                     {diffusions.map(d => (
-                        <label key={d} style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.9rem' }}>
+                        <label key={d} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
                             <input
                                 type="checkbox"
                                 name="chauffageDiffusion"
                                 value={d}
                                 checked={formData.chauffageDiffusion?.includes(d) || false}
                                 onChange={handleMultiSelectChange}
+                                style={{ transform: 'scale(1.2)' }}
                             />
                             {d}
                         </label>
@@ -80,19 +74,20 @@ export default function SectionD({ formData, handleChange, handleMultiSelectChan
             </div>
 
             {/* Vitrage & Volets */}
-            <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem', marginTop: '1rem', borderTop: '1px solid #eee', paddingTop: '1rem' }}>Huisseries</h3>
+            <h3 style={{ marginTop: '2rem', marginBottom: '1rem', borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem' }}>Huisseries</h3>
 
             <div className="form-group">
                 <label className="form-label">Vitrage</label>
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
                     {['PVC double vitrage', 'Simple vitrage', 'Double vitrage bois', 'Autre'].map(v => (
-                        <label key={v} style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.9rem' }}>
+                        <label key={v} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
                             <input
                                 type="checkbox"
                                 name="vitrage"
                                 value={v}
                                 checked={formData.vitrage?.includes(v) || false}
                                 onChange={handleMultiSelectChange}
+                                style={{ transform: 'scale(1.2)' }}
                             />
                             {v}
                         </label>
@@ -102,15 +97,16 @@ export default function SectionD({ formData, handleChange, handleMultiSelectChan
 
             <div className="form-group">
                 <label className="form-label">Volets</label>
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
                     {['Roulant électrique', 'Manuel', 'Bois', 'Autre'].map(v => (
-                        <label key={v} style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.9rem' }}>
+                        <label key={v} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
                             <input
                                 type="checkbox"
                                 name="volet"
                                 value={v}
                                 checked={formData.volet?.includes(v) || false}
                                 onChange={handleMultiSelectChange}
+                                style={{ transform: 'scale(1.2)' }}
                             />
                             {v}
                         </label>
@@ -119,7 +115,7 @@ export default function SectionD({ formData, handleChange, handleMultiSelectChan
             </div>
 
             {/* Parking */}
-            <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem', marginTop: '1rem', borderTop: '1px solid #eee', paddingTop: '1rem' }}>Parking / Garage</h3>
+            <h3 style={{ marginTop: '2rem', marginBottom: '1rem', borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem' }}>Parking / Garage</h3>
             <div className="form-group">
                 <label className="form-label">Type</label>
                 <select
@@ -135,7 +131,7 @@ export default function SectionD({ formData, handleChange, handleMultiSelectChan
             </div>
 
             {formData.parkingType !== 'aucun' && (
-                <>
+                <div className="fade-in">
                     <div className="form-group">
                         <label className="form-label">Quantité</label>
                         <input
@@ -156,7 +152,7 @@ export default function SectionD({ formData, handleChange, handleMultiSelectChan
                             onChange={handleChange}
                         />
                     </div>
-                </>
+                </div>
             )}
             <div className="form-group">
                 <label className="form-label">Observations stationnement</label>
@@ -171,7 +167,7 @@ export default function SectionD({ formData, handleChange, handleMultiSelectChan
 
             {/* Conditionals */}
             {formData.typeBien === 'maison' && (
-                <div className="form-group" style={{ marginTop: '1rem', borderTop: '1px solid #eee', paddingTop: '1rem' }}>
+                <div className="form-group fade-in" style={{ marginTop: '2rem', borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem' }}>
                     <label className="form-label">Grenier / Combles / Dépendances</label>
                     <textarea
                         className="form-textarea"
@@ -183,13 +179,14 @@ export default function SectionD({ formData, handleChange, handleMultiSelectChan
             )}
 
             {formData.typeBien === 'appartement' && (
-                <div className="form-group" style={{ marginTop: '1rem', borderTop: '1px solid #eee', paddingTop: '1rem' }}>
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div className="form-group fade-in" style={{ marginTop: '2rem', borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem' }}>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600, cursor: 'pointer' }}>
                         <input
                             type="checkbox"
                             name="ascenseur"
                             checked={formData.ascenseur || false}
                             onChange={(e) => handleChange({ target: { name: 'ascenseur', value: e.target.checked } })}
+                            style={{ transform: 'scale(1.2)' }}
                         />
                         Ascenseur ?
                     </label>

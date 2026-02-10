@@ -4,7 +4,7 @@ export default function SectionJ({ formData, handleChange }) {
     return (
         <div className="card">
             <h2>Contacts</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
                 <div className="form-group">
                     <label className="form-label">Civilité</label>
                     <select

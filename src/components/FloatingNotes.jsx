@@ -3,81 +3,78 @@ import React, { useState } from 'react'
 export default function FloatingNotes({ formData, handleChange }) {
     const [isOpen, setIsOpen] = useState(false)
 
-    return (
-        <>
-            <div
+    if (!isOpen) {
+        return (
+            <button
+                onClick={() => setIsOpen(true)}
+                className="btn-primary"
                 style={{
                     position: 'fixed',
-                    bottom: '20px',
-                    right: '20px',
-                    zIndex: 1000,
+                    bottom: '2rem',
+                    left: '2rem',
+                    width: 'auto',
+                    padding: '0.75rem 1.25rem',
+                    zIndex: 800,
+                    boxShadow: 'var(--shadow-lg)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem'
                 }}
             >
+                <span>📝</span>
+                <span>Notes</span>
+            </button>
+        )
+    }
+
+    return (
+        <div className="card floating-notes-card" style={{
+            position: 'fixed',
+            bottom: '2rem',
+            left: '2rem',
+            width: '320px',
+            zIndex: 800,
+            margin: 0,
+            padding: '1.5rem',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
+            animation: 'fadeIn 0.3s ease-out'
+        }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h4 style={{ margin: 0 }}>Notes Globales</h4>
                 <button
-                    type="button"
-                    onClick={() => setIsOpen(!isOpen)}
+                    onClick={() => setIsOpen(false)}
                     style={{
-                        width: '60px',
-                        height: '60px',
-                        borderRadius: '50%',
-                        background: 'var(--primary-color)',
-                        color: 'white',
+                        background: 'transparent',
                         border: 'none',
-                        boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
                         fontSize: '1.5rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        cursor: 'pointer'
+                        lineHeight: 1,
+                        cursor: 'pointer',
+                        color: 'var(--text-secondary)'
                     }}
                 >
-                    📝
+                    &times;
                 </button>
             </div>
 
-            {isOpen && (
-                <div
-                    style={{
-                        position: 'fixed',
-                        bottom: '90px',
-                        right: '20px',
-                        width: '300px',
-                        height: '400px',
-                        background: 'white',
-                        boxShadow: '0 10px 15px rgba(0,0,0,0.1)',
-                        borderRadius: '8px',
-                        padding: '1rem',
-                        zIndex: 1000,
-                        display: 'flex',
-                        flexDirection: 'column'
-                    }}
-                >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                        <h3 style={{ fontSize: '1rem' }}>Notes rapides</h3>
-                        <button
-                            type="button"
-                            onClick={() => setIsOpen(false)}
-                            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.25rem' }}
-                        >
-                            &times;
-                        </button>
-                    </div>
-                    <textarea
-                        style={{
-                            flex: 1,
-                            width: '100%',
-                            resize: 'none',
-                            border: '1px solid #e5e7eb',
-                            borderRadius: '4px',
-                            padding: '0.5rem'
-                        }}
-                        placeholder="Prendre des notes..."
-                        name="notesGlobales"
-                        value={formData.notesGlobales}
-                        onChange={handleChange}
-                    ></textarea>
-                </div>
-            )}
-        </>
+            <textarea
+                className="form-textarea"
+                rows="6"
+                name="notesGlobales"
+                value={formData.notesGlobales}
+                onChange={handleChange}
+                placeholder="Prise de notes rapide..."
+                autoFocus
+            ></textarea>
+
+            <button
+                onClick={() => setIsOpen(false)}
+                className="btn-ghost"
+                style={{ alignSelf: 'flex-end', fontSize: '0.875rem' }}
+            >
+                Réduire
+            </button>
+        </div>
     )
 }
